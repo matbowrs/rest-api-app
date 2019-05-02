@@ -7,8 +7,9 @@ router.get('/', (req, res, next) => {
     });
 });
 
+// 201 because it says 'everything is good, item was created'
 router.post('/', (req,res,next) => {
-    res.status(200).json( {
+    res.status(201).json( {
         message: 'Handling POST requests to /products'
     });
 });
