@@ -1,2 +1,10 @@
-# rest-api-app with node.js and express
-Basic API practice with Node.js
+# Simple RESTful API with Node.js and Express
+First exposure to Node.js, so I decided to build a simple RESTful API.
+## Dependencies
+-Express (quick and easy server setup)
+-Body-parser (parse JSON bodies)
+-Morgan (logging)
+-Mongoose (database)
+
+## Dev Dependencies
+-Nodemon (used for hot reloads)
