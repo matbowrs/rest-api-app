@@ -4,7 +4,7 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb+srv://mb:OwlDevilFjord@rest-api-cluster-aiiyy.mongodb.net/test?retryWrites=true',
+mongoose.connect('mongodb+srv://mb:ayaya@rest-api-cluster-aiiyy.mongodb.net/test?retryWrites=true',
     {
         useNewUrlParser: true
     }
