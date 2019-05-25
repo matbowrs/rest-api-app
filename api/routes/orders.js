@@ -9,9 +9,10 @@ const Product = require('../models/productModel');
 router.get('/', (req, res, next) => {
     Order.find()
     .select('product quantity _id')
+    // First arg is what you want to populate, second is like .select()
+    .populate('product', '_id name price') 
     .exec()
     .then(docs => {
-        
 
         if (docs.length > 0)
             res.status(200).json({
@@ -19,7 +20,7 @@ router.get('/', (req, res, next) => {
                 orders: docs.map(doc => {
                     return {
                         _id: doc._id,
-                        product: doc.productID,
+                        product: doc.product,
                         quantity: doc.quantity,
                         request: {
                             type: 'GET',
@@ -50,6 +51,7 @@ router.get('/:ordersID', (req,res,next) => {
 
     Order.findById(id)
     .select('_id quantity product')
+    .populate('product', '_id name price') 
     .exec()
     .then(doc => {
         console.log(doc); 
@@ -80,7 +82,7 @@ router.post('/', (req,res,next) => {
                 message: 'Product not found'
             });
         }
-        
+
         const order = new Order({
             _id: new mongoose.Types.ObjectId(),
             product: req.body.productID,
