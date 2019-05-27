@@ -5,6 +5,7 @@ First exposure to Node.js, so I decided to build a simple RESTful API.
 * Body-parser (parse JSON bodies)
 * Morgan (logging)
 * Mongoose (database)
-
+* bcrypt (password encryption so that passwords are not stored in plain text)
+* jsonwebtoken (sending tokens)
 ## Dev Dependencies
 * Nodemon (used for hot reloads)
