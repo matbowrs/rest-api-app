@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
-
+const checkAuth = require('../middleware/check-auth');
 
 const Order = require('../models/orderModel');
 const Product = require('../models/productModel');
 
-router.get('/', (req, res, next) => {
+router.get('/', checkAuth, (req, res, next) => {
     Order.find()
     .select('product quantity _id')
     // First arg is what you want to populate, second is like .select()
@@ -46,7 +46,7 @@ router.get('/', (req, res, next) => {
 });
 
 // with an id
-router.get('/:ordersID', (req,res,next) => {
+router.get('/:ordersID', checkAuth, (req,res,next) => {
     const id = req.params.ordersID; 
 
     Order.findById(id)
@@ -71,7 +71,7 @@ router.get('/:ordersID', (req,res,next) => {
     });
 });
 
-router.post('/', (req,res,next) => {
+router.post('/', checkAuth, (req,res,next) => {
 
     // Check if product exists before adding it to an order
     Product.findById(req.body.productID)
@@ -116,7 +116,7 @@ router.post('/', (req,res,next) => {
 });
 
 
-router.delete('/:ordersID', (req,res,next) => {
+router.delete('/:ordersID', checkAuth, (req,res,next) => {
     const id = req.params.ordersID; 
 
     Order.remove({
