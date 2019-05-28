@@ -14,6 +14,7 @@ const homeRoute = require('./api/routes/home');
 const productRoutes = require('./api/routes/products');
 const orderRoutes = require('./api/routes/orders');
 const userRoutes = require('./api/routes/user');
+const returnRoutes = require('./api/routes/returns');
 
 // Logging package
 app.use(morgan('dev'));
@@ -47,6 +48,7 @@ app.use('', homeRoute);
 app.use('/products', productRoutes);
 app.use('/orders', orderRoutes);
 app.use('/user', userRoutes);
+app.use('/returns', returnRoutes);
 
 // If we make it past the routes above, it means 
 // we are not able to handle what the user is

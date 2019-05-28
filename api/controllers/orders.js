@@ -83,8 +83,7 @@ exports.orders_create_new = (req,res,next) => {
             product: req.body.productID,
             quantity: req.body.quantity
         });
-        return order
-                .save()
+        return order.save()
     })
     .then(result => {
         console.log(result);
